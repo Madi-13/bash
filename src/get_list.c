@@ -1,16 +1,13 @@
-char **get_list(void)
-{
-	char end = 0, **list = NULL, **ch = NULL;
+char **get_list () {
+	char **list = NULL, last_sym = '\0';
 	int i = 0;
 	do {
-		ch = (char **)realloc(list, (i + 1) * sizeof(char *));
-		if (ch == NULL) {
-			free_list(list);
-			err(1, NULL);
-		}
-		list = ch;
-		list[i] = get_word(&end);
+		list = realloc(list, (i + 1) * sizeof(char *));
+		list[i] = get_word(&last_sym);
 		i++;
-	} while (list[i - 1] != NULL);
+	}
+	while (last_sym != '\n');
+	list = realloc(list, (i + 1) * sizeof(char *));
+	list[i] = NULL;
 	return list;
 }
