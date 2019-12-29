@@ -1,38 +1,12 @@
 #include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/wait.h>
 #include <stdlib.h>
-#include <string.h>
-
-#define ANSI_COLOR_YELLOW  "\x1b[33;1m"
-#define ANSI_COLOR_BLUE    "\x1b[34;1m"
-#define ANSI_COLOR_RED     "\x1b[31;1m"
-#define ANSI_COLOR_GREEN   "\x1b[32;1m"
-#define ANSI_COLOR_MAGENTA "\x1b[35;1m"
-#define ANSI_COLOR_CYAN    "\x1b[36;1m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
-
-void print() {
-  const char* pwd = getenv("PWD");
-  const char* user = getenv("USER");
-  char host[256];
-  gethostname(host, 256);
-  printf(ANSI_COLOR_GREEN "%s@%s" ANSI_COLOR_RESET ":" ANSI_COLOR_BLUE "%s" ANSI_COLOR_RESET "$ ", user, host, pwd);
-  fflush(stdout);
-}
+#include <unistd.h>
+#inclide <string.h>
+#include <fcntl.h>
+#include <sys/wait.h>
 
 int fon = 0;
 char konv = '\0';
-
-void print() {
-  const char* pwd = getenv("PWD");
-  const char* user = getenv("USER");
-  char host[256];
-  gethostname(host, 256);
-  printf(ANSI_COLOR_GREEN "%s@%s" ANSI_COLOR_RESET ":" ANSI_COLOR_BLUE "%s" ANSI_COLOR_RESET "$ ", user, host, pwd);
-  fflush(stdout);
-}
 
 void print1(char ***cmds) {
   for (int i = 0; cmds[i] != NULL; i++) {
@@ -350,7 +324,6 @@ int main(void) {
     char ***cmds = NULL;
     int n = 0;
     while (1) {
-        print();
         cmds = get_cmds(&n);
         if (n == -1) {
           continue;
