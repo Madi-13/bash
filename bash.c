@@ -89,7 +89,7 @@ char *get_word(char *end) {
     return word;
 }
 
-void free_3_arr(char ***cmds) {
+void free_three_arr(char ***cmds) {
     for (int i = 0; cmds[i] != NULL; i++) {
         for (int j = 0; cmds[i][j] != NULL; j++) {
             free(cmds[i][j]);
