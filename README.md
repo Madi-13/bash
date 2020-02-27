@@ -13,3 +13,6 @@
 
 Запуск программы:
   ./bash
+  
+EDITED BY MODI MALBEK
+VMK_2020 KF MGU
