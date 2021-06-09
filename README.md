@@ -14,5 +14,5 @@
 Запуск программы:
   ./bash
   
-EDITED BY MODI MALBEK
+EDITED BY MАDI MALBEK
 VMK_2020 KF MGU
